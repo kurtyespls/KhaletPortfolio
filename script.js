@@ -198,3 +198,35 @@
       document
         .querySelectorAll("[data-count]")
         .forEach((el) => countObserver.observe(el));
+
+
+      // ---------- Copy Email to Clipboard ----------
+      document.querySelectorAll(".copy-email-btn").forEach((copyEmailBtn) => {
+        copyEmailBtn.addEventListener("click", async () => {
+          const email = copyEmailBtn.dataset.email || "bucao527@gmail.com";
+          try {
+            await navigator.clipboard.writeText(email);
+          } catch (err) {
+            const tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+          }
+          const icon = copyEmailBtn.querySelector("i");
+          const text = copyEmailBtn.querySelector(".copy-text");
+          const prevIconClass = icon ? icon.className : "";
+          const prevText = text ? text.textContent : "";
+
+          copyEmailBtn.classList.add("copied");
+          if (icon) icon.className = "fa-solid fa-check";
+          if (text) text.textContent = "Copied!";
+
+          setTimeout(() => {
+            copyEmailBtn.classList.remove("copied");
+            if (icon) icon.className = prevIconClass;
+            if (text) text.textContent = prevText;
+          }, 2000);
+        });
+      });

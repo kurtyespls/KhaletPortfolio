@@ -1250,11 +1250,109 @@
 
       .contact-actions {
         max-width: 340px;
-        margin: 26px auto 30px;
+        margin: 26px auto 20px;
+      }
+
+      .contact-email-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-full);
+        padding: 6px 8px 6px 16px;
+        margin: 0 auto 28px;
+        max-width: 100%;
+        transition: var(--transition-fast);
+      }
+
+      .contact-email-badge:hover {
+        border-color: var(--accent-teal);
+        background: rgba(111, 168, 169, 0.06);
+      }
+
+      .contact-email-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-dark);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+        word-break: break-all;
+      }
+
+      .contact-email-link i {
+        color: var(--accent-teal);
+        font-size: 0.95rem;
+      }
+
+      .contact-email-link:hover {
+        color: var(--accent-teal);
+      }
+
+      .copy-email-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-muted);
+        padding: 6px 12px;
+        border-radius: var(--radius-full);
+        font-size: 0.78rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition-fast);
+        white-space: nowrap;
+      }
+
+      .copy-email-btn:hover {
+        color: #ffffff;
+        background: var(--accent-teal);
+        border-color: var(--accent-teal);
+      }
+
+      .copy-email-btn.copied {
+        background: #2e7d32;
+        border-color: #2e7d32;
+        color: #ffffff;
       }
 
       .contact-socials {
         justify-content: center;
+      }
+
+      .hero-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* Compact by default so the badge fits beside the CV button on mobile */
+      .hero-email-badge {
+        margin: 0;
+        align-self: center;
+        flex-shrink: 0;
+        max-width: 100%;
+        padding: 5px 6px 5px 12px;
+        gap: 8px;
+      }
+
+      .hero-email-badge .contact-email-link {
+        font-size: 0.8rem;
+        gap: 6px;
+      }
+
+      .hero-email-badge .copy-text {
+        display: none;
+      }
+
+      .hero-email-badge .copy-email-btn {
+        padding: 5px 8px;
+        font-size: 0.72rem;
       }
 
       .hero-socials {
@@ -1469,8 +1567,38 @@
           align-items: center;
         }
 
+        .hero-actions {
+          flex-wrap: wrap;
+          row-gap: 14px;
+        }
+
+        /* Desktop: email badge drops below the Download CV button */
+        .hero-email-badge {
+          order: 2;
+          flex: 0 0 100%;
+          justify-content: center;
+          margin: 0;
+          padding: 6px 8px 6px 16px;
+          gap: 10px;
+        }
+
+        .hero-email-badge .contact-email-link {
+          font-size: 0.92rem;
+          gap: 8px;
+        }
+
+        .hero-email-badge .copy-text {
+          display: inline;
+        }
+
+        .hero-email-badge .copy-email-btn {
+          padding: 6px 12px;
+          font-size: 0.78rem;
+        }
+
         .hero-socials {
           justify-content: flex-start;
+          order: 1;
         }
 
         .contact-actions {
